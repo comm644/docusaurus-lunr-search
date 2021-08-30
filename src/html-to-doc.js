@@ -30,17 +30,18 @@ function* scanDocuments({ path, url }) {
 
   const article = select('article', hast)
   if (!article) {
-    console.warning(`Article not found ${path}`);
+    console.warn(`Article not found ${path}`);
     return
   }
   const markdown = select('.markdown', article)
   if (!markdown) {
-    console.warning(`Markdown not found ${path}`);
+    console.warn(`Markdown not found ${path}`);
     return
   }
 
   const pageTitleElement = select('h1', article)
   if (!pageTitleElement) {
+    console.warn(`Title not found ${path}`);
     return
   }
   const pageTitle = toText(pageTitleElement)
