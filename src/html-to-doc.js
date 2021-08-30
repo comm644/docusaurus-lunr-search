@@ -30,10 +30,12 @@ function* scanDocuments({ path, url }) {
 
   const article = select('article', hast)
   if (!article) {
+    console.warning(`Article not found ${path}`);
     return
   }
   const markdown = select('.markdown', article)
   if (!markdown) {
+    console.warning(`Markdown not found ${path}`);
     return
   }
 
